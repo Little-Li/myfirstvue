@@ -49,6 +49,7 @@ export default {
             this.$refs[formName].validate(valid=>{
                 if(valid){
                   checkUser(this.form).then(res=>{
+                      localStorage.setItem('mytoken',res.data.token)
                       if(res.meta.status==200){
                          this.$router.push({name:'Home'})
                       }else{
