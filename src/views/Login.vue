@@ -16,11 +16,13 @@
          <el-form-item>
               <el-button type="primary" class="login-btn" @click="loginSubmit('form')">登录</el-button>
          </el-form-item>
+
     </el-form>
   </div>
 </template>
 <script>
 import{checkUser}from '@/api'
+
 export default {
     data(){
         return{
@@ -37,6 +39,7 @@ export default {
                 ]
             }
         }
+
    
     },
          methods:{
@@ -61,6 +64,7 @@ export default {
             })
             },
          }
+
 };
 </script>
 <style lang="scss" scoped>
