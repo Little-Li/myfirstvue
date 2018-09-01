@@ -2,10 +2,11 @@
     <div class="home">
       <el-container>
           <!--侧边栏-->
-        <el-aside width="200px">
+        <el-aside width="auto">
             <div class="logo"></div>
              <el-menu
       default-active="2"
+      :collapse="isCollapse"
       class="el-menu-admin"
       @open="handleOpen"
       @close="handleClose"
@@ -27,8 +28,21 @@
     </el-menu>
         </el-aside>
         <el-container>
-        <el-header>Header</el-header>
-        <el-main>Main</el-main>
+            <!--header部分-->
+        <el-header>
+            <i class="myicon myicon-menu toggle-btn "@click='toggleCollaps'></i>
+            <div class="system-title">我的后台管理系统</div>
+            <div>
+                <span class="welcome">
+                    您好，胡傻逼
+                </span>
+                <el-button type="text" @click='logout'>退出</el-button>
+            </div>
+        </el-header>
+        <!--中间内容部分-->
+        <el-main>
+            <router-view></router-view>
+        </el-main>
         </el-container>
     </el-container>
     </div>
@@ -36,12 +50,26 @@
 <script>
 import{getUserList} from '@/api'
 export default {
+    data (){
+        return{
+            isCollapse: false
+        }
+    },
     methods: {
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      toggleCollaps(){
+          this.isCollapse = !this.isCollapse
+      },
+      logout(){
+          //清除localstorage的token
+          localStorage.removeItem('mytoken')
+          //跳转至登录页面
+          this.$router.push({name:'/Login'})
       }
     },
     mounted(){
