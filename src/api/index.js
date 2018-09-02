@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 //设置请求根路径
-const baseURL = 'http://localhost:8888/api/private/v1/'
+const baseURL = 'http://www.lovegf.cn:8888/api/private/v1/'
 axios.defaults.baseURL = baseURL
 
 //添加请求拦截器

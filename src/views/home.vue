@@ -34,7 +34,7 @@
             <div class="system-title">我的后台管理系统</div>
             <div>
                 <span class="welcome">
-                    您好，胡傻逼
+                    您好，{{$store.getters.username}}
                 </span>
                 <el-button type="text" @click='logout'>退出</el-button>
             </div>

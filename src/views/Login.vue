@@ -47,11 +47,14 @@ export default {
                 //  console.log(this.$refs)
                 //  console.log(this.$refs[formName])
             this.$refs[formName].validate(valid=>{
+                //校验通过才执行函数
                 if(valid){
                   checkUser(this.form).then(res=>{
-                      localStorage.setItem('mytoken',res.data.token)
+                     
                       if(res.meta.status==200){
+                           localStorage.setItem('mytoken',res.data.token)
                          this.$router.push({name:'Home'})
+                         this.$store.commit('setUsername',res.data.username)
                       }else{
                           this.$message({
                               type:'error',
