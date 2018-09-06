@@ -5,7 +5,7 @@
         <el-aside width="auto">
             <div class="logo"></div>
              <el-menu
-      default-active="2"
+      :router="true"
       :collapse="isCollapse"
       class="el-menu-admin"
       @open="handleOpen"
@@ -18,9 +18,9 @@
           <i class="el-icon-location"></i>
           <span>用户管理</span>
         </template>
-          <el-menu-item index="1-4-1">
+          <el-menu-item index="/user">
                 <i class="el-icon-menu"></i>
-                <span slot="title">用户管理</span>
+                <span slot="title">用户列表</span>
           </el-menu-item>
       </el-submenu>
      
@@ -30,7 +30,7 @@
         <el-container>
             <!--header部分-->
         <el-header>
-            <i class="myicon myicon-menu toggle-btn "@click='toggleCollaps'></i>
+            <i class="myicon myicon-menu toggle-btn " @click='toggleCollaps'></i>
             <div class="system-title">我的后台管理系统</div>
             <div>
                 <span class="welcome">
